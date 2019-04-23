@@ -1,0 +1,33 @@
+ <section class="todoSideBarSection">
+    {{todo-side-bar  isDone=isDone isFav=isFav isTrash=isTrash sortby=sortby taskCount=model.length updateQuery=(action 'updateQueryParamsDropDown')}}
+    <div style='color:white'>
+        {{!-- load : {{ loading}} --}}
+    </div>
+</section>
+
+{{!-- {{todo-search}} --}}
+
+{{!-- {{#todo-search filter=(action "filterByTitle") as |filteredResults| }}
+    <section class="todoBodySection">
+        {{todo-body  tasks=filteredResults refMod2=(action 'sendForRefreshModel2') isDone=isDone isFav=isFav isTrash=isTrash}}
+    </section>
+{{/todo-search}} --}}
+
+{{todo-search}}
+
+{{#if loading}}
+    <h1 class="loadingPage"><center>this page is loading....</center></h1>
+    
+{{else}} 
+    {{#if this.model}}
+        <section class="todoBodySection">
+            {{todo-body  tasks=this.model refMod2=(action 'sendForRefreshModel2') isDone=isDone isFav=isFav isTrash=isTrash}}
+        </section> 
+    {{else}}
+        <section class="emptySection">
+            <h1>{{task-empty-msg isDone isFav isTrash}}</h1>
+        </section>
+    {{/if}}
+{{/if}} 
+
+{{!-- {{outlet}}--}}

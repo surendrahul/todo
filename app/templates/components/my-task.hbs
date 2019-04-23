@@ -1,0 +1,68 @@
+{{#if task.isTrash}}
+    <div class="taskBody">
+        <header>
+            <i><h3> {{task.title}} <br></h3></i> 
+            {{#if task.isFav}}
+                <i class="fas fa-heart heartIconFav" {{action 'popupForRestore' task.id}}></i>
+            {{/if}} 
+            <small><b><u>Create Date & time:</u></b> {{task.created}}</small><br>
+            <small><b><u>Start Date:</u></b> {{task.startDate}}</small><br>
+            <small><b><u>Due Date:</u></b> {{task.dueDate}}</small>
+        </header>
+        <section>
+                <i><p>{{task.description}} <br> </p></i>
+        </section>
+        <header>
+            <i class="fas fa-redo editTaskIcon" {{action 'restoreTask' task.id}}><span class="toolTipTextED">restore this task </span></i>
+            <i class="fa fa-trash deletTaskIcon" {{action 'deleteTaskFinally' task.id}}><span class="toolTipTextED">delete this task</span></i><br>
+            
+            {{#if task.isDone}}
+                <span class="StatusSpan"><b>Status : </b> <u>Completed</u></span> 
+                <i class="fa fa-check-circle completeIcon" {{action 'popupForRestore' task.id}}></i>
+                <center><b>Nice!! you have completed this task.</b></center>
+            {{else}}
+                <span  class="StatusSpan"><b>Status : </b><u> Not Completed</u></span> 
+            {{/if}}
+        </header>           
+    </div>
+{{else}}    
+    <div class="taskBody">
+        <header>
+            <i><h3> {{task.title}} <br></h3></i> 
+            {{#if task.isFav}}
+                <i class="fas fa-heart heartIconFav" {{action "markAsFav" task.id}}><span class="toolTipText">remove from Favourite </span></i>
+            {{else}}
+                <i class="fas fa-heart heartIconNotFav" {{action "markAsFav" task.id}}> <span class="toolTipText">add in Favourite </span></i>
+            {{/if}} 
+            <small><b><u>Create Date:</u></b> {{task.created}}</small><br>
+            <small><b><u>Start Date:</u></b> {{task.startDate}}</small><br>
+            <small><b><u>Due Date:</u></b> {{task.dueDate}}</small>
+        </header>
+        <section>
+                <i><p>{{task.description}} <br> </p></i>
+        </section>
+        <header>
+            {{!-- <button class="editButton" {{action 'editTask' task}}>Edit</button>
+            <button class='deleteButton' {{action 'deleteTask' task}}>Delete</button> --}}
+            <i class="fa fa-edit editTaskIcon" {{action 'editTask' task}}><span class="toolTipTextED">edit this task </span></i>
+            <i class="fa fa-trash deletTaskIcon" {{action 'moveToTrash' task.id}}><span class="toolTipTextED">move to trash </span></i><br>
+            
+            {{#if task.isDone}}
+                <span class="StatusSpan"><b>Status : </b> <u>Completed</u></span> 
+                {{!-- <button {{action 'markAsDone' task.id}}>mark as not complete</button> --}}
+                <i class="fa fa-check-square completeIcon" {{action 'markAsDone' task.id}}><span class="toolTipText">mark as not completed </span></i>
+                <center><b>Nice!! you have completed this task.</b></center>
+                <center><small><b>Date of completion:</b>  {{task.completedTime}}</small></center>
+            {{else}}
+                <span  class="StatusSpan"><b>Status : </b><u> Not Completed</u></span> 
+                {{!-- <button {{action 'markAsDone' task.id}}>mark as complete</button> --}}
+                <i class="fa fa-check-square notCompleteIcon" {{action 'markAsDone' task.id}}><span class="toolTipText">mark as completed </span></i><br><br>
+            {{/if}}
+        </header>           
+    </div>
+{{/if}}
+{{#if this.isEdit}}
+    {{!-- <div class="editTaskSection"  {{action 'removeEditTaskSection'}} ></div>{{edit-task task=task startDate1=startDate isEdit=isEdit}} --}}
+    <div class="editTaskSection" ></div>{{edit-task task=task startDate1=startDate isEdit=isEdit}}
+{{/if}}
+{{yield}}

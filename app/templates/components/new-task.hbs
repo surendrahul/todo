@@ -1,0 +1,24 @@
+
+
+<section class="newTaskForm">
+    <i class="fas fa-times-circle cancleIcon" {{action 'cancleNewTask'}}><span class="toolTipTextCancel">cancel </span></i>
+    <center><u><i><h1>{{attrs.headline}}</h1></i></u></center><br>
+    
+    Title <span class="mandatorySign">*</span>
+    {{input type='text' class='inputTitle' placeholder='Title...' value=title autocomplete=false }} <br>
+    Description(optional)
+    {{textarea placeholder='Description...' value=description id="" cols="60" rows="5" }}<br>
+    Starting Date<span class="mandatorySign">*</span>
+    {{input type='date' placeholder='Start Date' min=startDate1 max=dueDate value=startDate }} <br>
+    {{#if startDate}}
+    Due Date<span class="mandatorySign">*</span>
+    {{input type='date' placeholder='Due Date' min=startDate value=dueDate }} <br>
+    {{/if}}
+    <button class="saveNewTaskButton" {{action 'saveNewTask'}}>save</button> 
+    <button class="backNewTaskButton" {{action 'cancleNewTask'}}>Cancel</button> 
+    
+    
+</section>
+
+
+{{yield}}

@@ -1,0 +1,12 @@
+<section class="bodySection">
+    <br><center><h1><i><u>{{task-type-header isDone isFav isTrash}}</u></i> </h1></center><br>
+    {{#each this.tasks as |task|}}   
+        {{my-task task=task refMod=(action 'sendForRefreshModel1') }}   
+    {{/each}}   
+</section>
+
+
+
+
+
+{{yield}}

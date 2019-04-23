@@ -1,0 +1,467 @@
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+.mainHeader{
+    width: 100%;
+    border-bottom: 3px solid #060c18;
+    background-color: #4285f4;
+    padding: 20px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 70px;
+
+}
+.appIcon{
+    font-size: 22px;
+    /* border: 2px solid rebeccapurple; */
+    padding: 8px;
+    border-radius: 12px;
+    background-color: #060c18;
+    color: #4285f4;
+}
+.bodySection{
+    margin-top: 70px;
+}
+.addNewTaskButton{
+    padding: 5px 12px;
+    font-size: 16px;
+    float: right;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    color: #464144;
+    transition: all 1s;
+    margin-right: 25px;
+}
+.addNewTaskButton:hover{
+    transform: scale(1.1);
+    border-bottom: 4px solid black;
+
+}
+.taskBody{
+    border: 2px solid #4285f4;
+    width: 80%;
+    margin: 25px 10%;
+    /* padding: 12px; */
+    background-color: #ffffff;
+    outline: 8px solid #dedede;
+    border-left: 8px solid #4285f4;
+    font-size: 120%;
+    color: #444443;
+
+}
+.taskBody h3{
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+.taskBody p{
+    word-wrap: break-word;
+}
+.taskBody header{
+    background: aliceblue;
+    padding: 12px;
+}
+.taskBody section{
+    background: #f5f8fb;
+    padding: 10px 40px;
+}
+.editButton, .saveNewTaskButton{
+    outline: none;
+    padding: 6px 16px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid green;
+    color: green;
+    cursor: pointer;
+    transition: all 0.3s
+}
+.saveNewTaskButton:hover{
+    box-shadow: 0px 6px 1px black;
+}
+
+.deleteButton, .backNewTaskButton{
+    outline: none;
+    padding: 6px 16px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid red;
+    color: red;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.deleteButton:hover,.editButton:hover{
+    box-shadow: 0px 5px 5px black;
+
+}
+.newTaskSection{
+    position: fixed;
+    border: 1px solid;
+    width: 100%;
+    height: 95vh;
+    background-color: #706f718a;
+    /* display: none; */
+    z-index: 1;
+}
+.editTaskSection{
+    position: fixed;
+    top: 0;
+    left: 0px;
+    border: 1px solid;
+    width: 100%;
+    height: 100vh;
+    background-color: #706f718a;
+    /* display: none; */
+}
+.newTaskForm{
+    border: 1px solid black;
+    width: 40%;
+    /* margin-left: 30%; */
+    /* margin-top: 100px; */
+    background-color: #4285f4;
+    padding: 3%;
+    border-radius: 20px 20px;
+    position: fixed;
+    top: 100px;
+    left: 30%;
+    z-index: 2;
+}
+.editTaskForm{
+    border: 1px solid black;
+    width: 40%;
+    /* margin-left: 30%; */
+    /* margin-top: 250px; */
+    background-color: #4285f4;
+    padding: 3%;
+    border-radius: 20px 20px;
+    /* margin-bottom: 100px; */
+    position: fixed;
+    top: 200px;
+    left: 30%;
+}
+input,textarea{
+    outline: none;
+    font-size: 22px;
+    padding: 5px 10px;
+    width: 100%;
+    margin:5px;
+    border:none;
+    border-bottom: 3px solid;
+    border-radius: 12px;
+}
+.StatusSpan{
+    font-size: 16px;
+}
+.checkBoxForComplete{
+    float: left;
+    width: 20px;
+}
+.todoSideBarSection{
+    /* border:2px solid blue; */
+    width: 20%;
+    height: 93vh;
+    float: left;
+    position: fixed;
+    background-color: #293645;
+    top: 70px;
+}
+.todoBodySection{
+    /* border: 2px solid red; */
+    width: 80%;
+    margin-left: 20%;
+}
+.sideBarSection{
+    padding:10px;
+    /* border:1px solid white; */
+    color:white
+}
+.heartIconNotFav{
+    color: #ced0d4;
+    cursor: pointer;
+    float: right;
+    width: 25px;
+    height: 25px;
+    visibility: hidden;
+
+}
+.heartIconFav{
+    color: red;
+    cursor: pointer;
+    float: right;
+    width: 25px;
+    height: 25px;
+}
+.notCompleteIcon{
+    color: #ced0d4;
+    /* float: right;
+    position: inherit;
+    visibility: hidden;
+    cursor: pointer; */
+    cursor: pointer;
+    float: right;
+    width: 25px;
+    height: 25px;
+    visibility: hidden;
+}
+.completeIcon{
+    color:green;
+    /* position: inherit;
+    cursor: pointer;
+    float: right; */
+    cursor: pointer;
+    float: right;
+    width: 25px;
+    height: 25px;
+}
+.editTaskIcon{
+    color:green;
+    /* padding: 8px 27px; */
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+
+}
+.deletTaskIcon{
+    color: red;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+}
+.taskBody:hover .heartIconNotFav{
+    visibility: visible;
+}
+.taskBody:hover .notCompleteIcon{
+    visibility: visible;
+}
+.toolTipText {
+    visibility: hidden; 
+    background-color: #2984fc;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    text-transform:capitalize;
+    font-size: 14px;
+    float: right;
+    position: relative;
+    width: 170px;
+}
+.toolTipTextED {
+    visibility: hidden; 
+    background-color: #2984fc;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    text-transform:capitalize;
+    font-size: 14px;
+    float: right;
+    position: relative;
+    top: -42px;
+    left: 120px;
+    width: 130px;
+}
+.heartIconFav:hover .toolTipText{
+     visibility: visible;
+}
+.heartIconNotFav:hover .toolTipText{
+    visibility: visible;
+}
+.completeIcon:hover .toolTipText{
+    visibility: visible;
+}
+.notCompleteIcon:hover .toolTipText{
+    visibility: visible;
+}
+.editTaskIcon:hover .toolTipTextED{
+    visibility: visible
+}
+.deletTaskIcon:hover .toolTipTextED{
+    visibility: visible
+}
+.linkForFilter{
+    display: block;
+    font-size: 14px;
+    text-align: left;
+    background: #293645;
+    padding: 4px 10px;
+    text-decoration: none;
+    color: #cacaca;
+    transition: all 0.5s;
+}
+.selectedLinkForFilter{
+    display: block;
+    font-size: 14px;
+    text-align: left;
+    background: #0a1723;
+    padding: 4px 10px;
+    text-decoration: none;
+    color: #fbf7f7;
+    border-radius: 5px;
+}
+.allLinksButton{
+    display: block;
+    width: 125px;
+    position: relative;
+    top: 20px;
+    left: 25px;
+    border: none;
+    border-radius:10px;
+}
+.filterBy{
+    /* display: none; */
+    color: white;
+    /* margin: 1px solid white; */
+    padding: 5px 35px;
+    background: #2984fc;
+    position: relative;
+    top: 10px;
+    left: 20px;
+    border-radius: 5px;
+}
+.linkForFilter:hover{
+    color:white;
+    background: #272b33;
+    border-radius: 5px;
+    
+}
+.loadingPage{
+    position: relative;
+    top: 300px;
+    left: 12%;
+}
+.buttonForSort{
+    color: #afacac;
+    position: relative;
+    top: 30px;
+    /* left: 30px; */
+    display: block;
+    text-decoration: none;
+    width: 120px;
+    margin: 5px;
+    padding: 1px 10px;
+    transition: all 0.5s;
+    background: none;
+    border: none;
+    font-size: 16px;
+}
+.buttonForSort:hover{
+    color: white;
+}
+.mandatorySign{
+    color: white;
+    font-size: 24px;
+}
+.cancleIcon{
+    color: white;
+    cursor: pointer;
+    float: right;
+    width: 25px;
+    height: 25px;
+    font-size: 22px;
+}
+.cancleIcon:hover .toolTipTextCancel{
+    visibility: visible;
+}
+.toolTipTextCancel{
+    visibility: hidden; 
+    background-color: #050c19;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    text-transform:capitalize;
+    font-size: 14px;
+    float: right;
+    position: relative;
+    width: 80px;
+}
+.myNewClass{
+    color:red
+}
+.selectedLinkForSort{
+    display: inline;
+    font-size: 14px;
+    text-align: left;
+    background: #0a1723;
+    padding: 4px 10px;
+    text-decoration: none;
+    color: #fbf7f7;
+    border-radius: 5px;
+}
+.emptySection{
+    height: 34%;
+    width: 40%;
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    text-align: center;
+    padding: 30px;
+    font-size: 120%;
+    color: gray;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMQ8mJ4hyr4vg7Lxq8yrVI5IcYadHmWfzIYZ1mb2YbFmuHPrv8);
+    background-size: 100% 100%;
+}
+.emptySection h1{
+    position: relative;
+    top: -100px;
+}
+.searchBar{
+    position: fixed;
+    top: 14px;
+    left: 36%;
+    width: 400px;
+}
+.dropDownForFilter{
+    /* border: 1px solid blue; */
+    position: fixed;
+    right: 50px;
+    top: 100px;
+}
+.dropDown{
+    color: white;
+    background: black;
+    outline: none;
+    width: 120px;
+    height: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.deadButton{
+    opacity: 0.5;
+}
+
+
+
+

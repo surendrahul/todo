@@ -1,0 +1,16 @@
+<header class="mainHeader">
+    <span class="appIcon">TODO</span>
+    {{#if this.isNew}}
+        <button class="addNewTaskButton"  {{action 'removeNewTaskSection' }}>Back</button>
+    {{else}}
+        <button class="addNewTaskButton"  {{action 'toggelAddNewForm' }}>Add New</button>
+    {{/if}}
+</header>
+{{#if this.isNew}}
+    <section class="newTaskSection" {{action 'removeNewTaskSection'}}></section> 
+    {{new-task isNew=isNew headline=headline startDate1=startDate refMod=(action "sendToRefMod") }}  
+{{/if}}
+
+
+
+

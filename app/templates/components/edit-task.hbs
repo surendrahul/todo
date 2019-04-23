@@ -1,0 +1,26 @@
+
+
+<section class="editTaskForm">
+    <i class="far fa-window-close cancleIcon" {{action 'cancleEditedTask'}}><span class="toolTipTextCancel">cancel </span></i>
+    <center><u><i><h1>Edit The Task</h1></i></u></center><br>
+    Title <span class="mandatorySign">*</span>
+    {{input type='text' class='inputTitle' placeholder='title' autofocus='on' value=task.title}} <br>
+    Description(optional)
+    {{textarea placeholder='discription' value=task.description id="" cols="60" rows="5"}}<br>
+    Start Date<span class="mandatorySign">*</span>
+    {{input type='date' placeholder='due date' min=startDate1 max=task.dueDate value=task.startDate}} <br>
+    Due Date<span class="mandatorySign">*</span>
+    {{input type='date' placeholder='due date' min=task.startDate value=task.dueDate}} <br>
+    {{#if isSaveButtonEnable}}
+        <button class="saveNewTaskButton deadButton" disabled={{isSaveButtonEnable}} {{action 'saveEditedTask'}}>save</button> 
+    {{else}}
+        <button class="saveNewTaskButton " {{action 'saveEditedTask'}}>save</button> 
+    {{/if}}
+
+    
+    <button class="backNewTaskButton" {{action 'cancleEditedTask'}}>Cancel</button> <br>
+</section>
+
+
+
+{{yield}}

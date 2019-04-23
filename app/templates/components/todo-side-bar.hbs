@@ -1,0 +1,41 @@
+<section class='sideBarSection'>
+    <span class=filterBy>Filter by </span> <br> 
+    {{#each filterItems as |item index|}}
+        <button {{action 'activeFilter' index}} class='allLinksButton'>
+            {{#link-to "home"  (query-params isFav=item.queryParams.isFav isDone=item.queryParams.isDone isTrash=item.queryParams.isTrash) class=(if item.selected "selectedLinkForFilter" "linkForFilter") }} 
+                {{item.itemValue}} 
+            {{/link-to}}
+        </button> 
+
+    {{/each}}
+    <br><br><br>
+    <span class=filterBy>Sort by </span>
+    {{#each sortItems as |item index|}}
+        <button {{action 'activeSortby' index}} class='allLinksButton'>
+            {{#link-to "home"  (query-params sortby=(if item.isClicked item.sortby.desc item.sortby.asc)  ) class=(if item.selected "selectedLinkForFilter" "linkForFilter") }} 
+                {{item.itemValue}}
+                {{#if item.isClicked}}<i class="fa fa-arrow-up"></i>{{else}}{{#if item.selected}}<i class="fa fa-arrow-down"></i>{{/if}}{{/if}}
+                
+            {{/link-to}}
+        </button> 
+
+    {{/each}}
+</section> 
+<br><br>
+<section class="sideBarSection">
+    <select onchange={{action 'updateFilterby' value="target.value"}}>
+        {{#each filterbyOptionItem as |item|}}
+            <option value={{item.value}} selected={{item.selected}}>{{item.text}}</option>
+        {{/each}}
+    </select>
+</section>
+<section class='sideBarSection'>    
+    <select onchange={{action 'updateSortby' value="target.value"}}>
+        {{#each sortbyOptionItem as |item|}}
+            <option value={{item.value}} selected={{item.selected}}>{{item.text}}</option>
+        {{/each}}
+    </select>
+
+</section>
+
+{{yield}}
